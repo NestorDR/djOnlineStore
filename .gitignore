@@ -1,0 +1,10 @@
+# Byte-compiled
+__pycache__/
+
+# edition
+.idea/
+.vscode/
+snippets/
+
+# static Bootstrap files from the 29th video of the course
+storeApp/statics/vendor
