@@ -3,11 +3,11 @@
 
 {% load static %}
 
-{% block title %}Dj Online Store{% endblock %}
+{% block title %}Blog - Dj Online Store{% endblock %}
 
 {% block content %}
 
-    {% for item in posts %}
+{% for item in posts %}
 
     <section class="page-section clearfix">
       <div class="container">
@@ -29,15 +29,15 @@
       </div>
     </section>
 
-    {% endfor %}
-    <section>
-        <div style="width:75%; margin:auto; text-align:center; color:white;">
-            Categories
-            {% for item in posts %}
-                {% for subitem in item.categories.all %}
-            &nbsp;&nbsp;&nbsp;<a href="{% url 'Category' subitem.id %}">{{subitem.name}}</a>
-                {% endfor %}
+{% endfor %}
+<section>
+    <div style="width:75%; margin:auto; text-align:center; color:white;">
+        Categories
+        {% for item in posts %}
+            {% for subitem in item.categories.all %}
+        &nbsp;&nbsp;&nbsp;<a href="{% url 'Category' subitem.id %}">{{subitem.name}}</a>
             {% endfor %}
-        </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

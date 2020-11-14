@@ -3,7 +3,7 @@
 
 {% load static %}
 
-{% block title %}Dj Online Store{% endblock %}
+{% block title %}Category - Dj Online Store{% endblock %}
 
 {% block content %}
 
@@ -35,7 +35,7 @@
             Categories
             {% for item in posts %}
                 {% for subitem in item.categories.all %}
-            &nbsp;&nbsp;&nbsp;<a href="{% url 'Category' subitem.id %}">{{subitem.name|upper}}</a>
+                <a href="{% url 'Category' subitem.id %}">{{subitem.name|upper}}</a>
                 {% endfor %}
             {% endfor %}
         </div>

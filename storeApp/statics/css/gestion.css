@@ -1,5 +1,7 @@
 html {
   --dark-primary-color:           #0D47A1;                                /* blue-900 */
+  --primary-text-color:           #FFFFFF;                                /* white    */
+  --alert-text-color:             #B71C1C;                                /* red-900  */
 }
 
 body {
@@ -17,6 +19,7 @@ h4,
 h5,
 h6 {
   font-family: 'Raleway';
+  color: var(--primary-text-color);
 }
 
 p {
@@ -86,10 +89,14 @@ p {
 #mainNav {
   background-color: var(--dark-primary-color);
   font-family: 'Raleway';
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 #mainNav .navbar-brand {
-  color: #ffffff;
+  color: var(--primary-text-color);
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -98,8 +105,22 @@ p {
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-decoration: none;
+}
+
+button {
+  background-color: var(--dark-primary-color);
+  border: none;
+  color: var(--primary-text-color);
+  min-width: 160px;
+  min-height: 48px;
+  outline: none;
+  padding: 10px;
+}
+button:hover {
+  color: yellow;
+  cursor: pointer;
 }
 
 @media (min-width: 992px) {
@@ -111,7 +132,7 @@ p {
     text-decoration: none ;
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #ffffff;
+    color: var(--primary-text-color);
     text-decoration: none;
   }
 }
@@ -188,43 +209,63 @@ p {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-@media (min-width: 992px) {
-  .about-heading .about-heading-img {
-    position: relative;
-    z-index: 0;
-  }
-  .about-heading .about-heading-content {
-    margin-top: -5rem;
-    position: relative;
-    z-index: 1;
-  }
+form {
+  display: flex;
+  flex-flow: column wrap;    /* flex-flow is the shorthand (abbreviated property) for: flex-direction and flex-wrap */
+  padding: 8px;
+}
+
+.form-row,
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
+form h3 {
+  padding: 16px 8px 4px 8px;
+  font-weight: bold;
+}
+form .form-row > label,
+form .form-row > input,
+form .form-row > textarea {
+  padding: 8px;
+}
+form .form-row > label {
+  min-width: 120px;
+  color: var(--primary-text-color);
+}
+form .form-row > input,
+form .form-row > textarea {
+  flex-grow: 5;
+}
+form .errorlist {
+  color: var(--alert-text-color);
+  font-size: 14px;
+  font-style: italic;
 }
 
 @media (min-width: 992px) {
-  .product-item .product-item-title {
-    position: relative;
-    z-index: 1;
-    margin-bottom: -3rem;
+  .form-row > input,
+  .form-row > textarea {
+    flex: 10 10;
   }
-  .product-item .product-item-img {
-    position: relative;
-    z-index: 0;
-    max-width: 60vw;
-  }
-  .product-item .product-item-description {
-    position: relative;
-    z-index: 1;
-    margin-top: -3rem;
-    max-width: 50vw;
+  form .form-actions {
+    justify-content: center;
   }
 }
 
-
-
-@media (min-width: 992px) {
-  .list-hours {
-    width: 50%;
-    font-size: 1.1rem;
+@media screen and (max-width: 600px) {
+  .form-row {
+    flex-flow: column wrap;
+  }
+  .form-row > label {
+    min-width: 0;
+  }
+  .form-row > input,
+  .form-row > textarea {
+    flex-grow: 1;
+    min-width: 0;
+    width: 100%;
   }
 }
 
@@ -236,13 +277,9 @@ p {
   background-color: var(--dark-primary-color);
 }
 
-
-
 .btn {
   box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
 }
-
-
 
 .font-weight-light {
   font-weight: 100 !important;
@@ -280,4 +317,36 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+
+@media (min-width: 992px) {
+  .about-heading .about-heading-img {
+    position: relative;
+    z-index: 0;
+  }
+  .about-heading .about-heading-content {
+    margin-top: -5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .product-item .product-item-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -3rem;
+  }
+  .product-item .product-item-img {
+    position: relative;
+    z-index: 0;
+    max-width: 60vw;
+  }
+  .product-item .product-item-description {
+    position: relative;
+    z-index: 1;
+    margin-top: -3rem;
+    max-width: 50vw;
+  }
+  .list-hours {
+    width: 50%;
+    font-size: 1.1rem;
+  }
 }

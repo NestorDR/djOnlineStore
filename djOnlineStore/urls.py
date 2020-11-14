@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # include: is A function that takes a full Python import path to another URLconf module that should be “included”
-    # in this place
+    #  in this place
     # Visit https://docs.djangoproject.com/en/3.1/ref/urls/#include
     path('', include('storeApp.urls'))
 ]
